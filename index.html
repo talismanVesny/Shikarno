@@ -5,8 +5,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .lol {
+            color: red;
+        }
+
+        .robot {
+            width: 200px;
+        }
+    </style>
 </head>
 <body>
-    sdfsf
+    <script>
+        function randomInteger(min, max) {
+            let rand = min + Math.random() * (max - min);
+            return Math.floor(rand);
+        }
+        const whoIsIAnswers = [
+            ['Красивый', 'Энергетический', 'Сверхчеловечный','Крисэнджелисный', 'Талисманный', 'Барсоподобный', 'Лалалакающий', 'Гипнотизирующий', 'Онанирующий',],
+            ['барс', 'дьявол', 'зверь', 'змееносец', 'антихрист', 'человек', 'порноактер', 'онанист', 'мудак', 'петух', '', 'шваброносец', 'долбаеб' ],
+            ['делающий лалалакания', 'делающий пиения', 'пьющий сперму', 'катающийся в автобусах', 'записывающий гипноз', 'гипнотизирующий девушек',],
+            ['для Максим', 'под Соловьева', 'рядом с дядей', 'для девушек', 'для японок', 'ЩАЖЕ!', 'в тайне от мамы Жанны'],
+
+        ]
+
+        console.log(randomInteger(0, 3))
+        const onMessage = (message) => {
+            message = message.toLowerCase()
+            console.log(message)
+            const whoIsI = message.indexOf('кто я');
+            console.log(whoIsI)
+            if (whoIsI !== -1) {
+                const value = `${whoIsIAnswers[0][randomInteger(0, whoIsIAnswers[0].length)]} ${whoIsIAnswers[1][randomInteger(0, whoIsIAnswers[1].length)]} ${whoIsIAnswers[2][randomInteger(0, whoIsIAnswers[2].length)]} ${whoIsIAnswers[3][randomInteger(0, whoIsIAnswers[3].length)]}`
+                alert(value)
+            }
+
+        }
+    </script>
+    <img class='robot' src='./robot.jpg'/>
+    <input type="text" onchange="onMessage(this.value)">
+    <input type="button" value="Button">
+
 </body>
 </html>
